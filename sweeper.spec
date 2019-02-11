@@ -5,22 +5,22 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : sweeper
-Version  : 18.08.0
-Release  : 1
-URL      : https://download.kde.org/stable/applications/18.08.0/src/sweeper-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/sweeper-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/sweeper-18.08.0.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 18.12.2
+Release  : 2
+URL      : https://download.kde.org/stable/applications/18.12.2/src/sweeper-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/sweeper-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/sweeper-18.12.2.tar.xz.sig
+Summary  : System Cleaner
 Group    : Development/Tools
 License  : LGPL-2.1
-Requires: sweeper-bin
-Requires: sweeper-data
-Requires: sweeper-license
-Requires: sweeper-locales
+Requires: sweeper-bin = %{version}-%{release}
+Requires: sweeper-data = %{version}-%{release}
+Requires: sweeper-license = %{version}-%{release}
+Requires: sweeper-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : kactivities-stats-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 No detailed description available
@@ -28,8 +28,8 @@ No detailed description available
 %package bin
 Summary: bin components for the sweeper package.
 Group: Binaries
-Requires: sweeper-data
-Requires: sweeper-license
+Requires: sweeper-data = %{version}-%{release}
+Requires: sweeper-license = %{version}-%{release}
 
 %description bin
 bin components for the sweeper package.
@@ -68,25 +68,25 @@ locales components for the sweeper package.
 
 
 %prep
-%setup -q -n sweeper-18.08.0
+%setup -q -n sweeper-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535239457
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549912132
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535239457
+export SOURCE_DATE_EPOCH=1549912132
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/sweeper
-cp COPYING.LIB %{buildroot}/usr/share/doc/sweeper/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/sweeper
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/sweeper/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -141,8 +141,8 @@ popd
 /usr/share/doc/HTML/uk/sweeper/sweeper.png
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/sweeper/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/sweeper/COPYING.LIB
 
 %files locales -f sweeper.lang
 %defattr(-,root,root,-)
