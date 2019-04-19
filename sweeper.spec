@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : sweeper
-Version  : 18.12.3
-Release  : 4
-URL      : https://download.kde.org/stable/applications/18.12.3/src/sweeper-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/sweeper-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/sweeper-18.12.3.tar.xz.sig
+Version  : 19.04.0
+Release  : 5
+URL      : https://download.kde.org/stable/applications/19.04.0/src/sweeper-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/sweeper-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/sweeper-19.04.0.tar.xz.sig
 Summary  : System Cleaner
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -68,14 +68,14 @@ locales components for the sweeper package.
 
 
 %prep
-%setup -q -n sweeper-18.12.3
+%setup -q -n sweeper-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555344192
+export SOURCE_DATE_EPOCH=1555634026
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -83,7 +83,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555344192
+export SOURCE_DATE_EPOCH=1555634026
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sweeper
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/sweeper/COPYING.LIB
