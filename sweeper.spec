@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : sweeper
-Version  : 19.04.3
-Release  : 9
-URL      : https://download.kde.org/stable/applications/19.04.3/src/sweeper-19.04.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.3/src/sweeper-19.04.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.3/src/sweeper-19.04.3.tar.xz.sig
+Version  : 19.08.0
+Release  : 10
+URL      : https://download.kde.org/stable/applications/19.08.0/src/sweeper-19.08.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.0/src/sweeper-19.08.0.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.0/src/sweeper-19.08.0.tar.xz.sig
 Summary  : System Cleaner
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -68,16 +68,17 @@ locales components for the sweeper package.
 
 
 %prep
-%setup -q -n sweeper-19.04.3
+%setup -q -n sweeper-19.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562896166
+export SOURCE_DATE_EPOCH=1565921492
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -91,7 +92,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1562896166
+export SOURCE_DATE_EPOCH=1565921492
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sweeper
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/sweeper/COPYING.LIB
