@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : sweeper
-Version  : 22.04.2
-Release  : 39
-URL      : https://download.kde.org/stable/release-service/22.04.2/src/sweeper-22.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.04.2/src/sweeper-22.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.04.2/src/sweeper-22.04.2.tar.xz.sig
+Version  : 22.04.3
+Release  : 40
+URL      : https://download.kde.org/stable/release-service/22.04.3/src/sweeper-22.04.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.3/src/sweeper-22.04.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.3/src/sweeper-22.04.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -69,15 +69,15 @@ locales components for the sweeper package.
 
 
 %prep
-%setup -q -n sweeper-22.04.2
-cd %{_builddir}/sweeper-22.04.2
+%setup -q -n sweeper-22.04.3
+cd %{_builddir}/sweeper-22.04.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1654820026
+export SOURCE_DATE_EPOCH=1657552556
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -93,10 +93,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1654820026
+export SOURCE_DATE_EPOCH=1657552556
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sweeper
-cp %{_builddir}/sweeper-22.04.2/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/sweeper/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/sweeper-22.04.3/LICENSES/LGPL-2.1-or-later.txt %{buildroot}/usr/share/package-licenses/sweeper/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
 pushd clr-build
 %make_install
 popd
@@ -145,6 +145,8 @@ popd
 /usr/share/doc/HTML/pt_BR/sweeper/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/sweeper/index.docbook
 /usr/share/doc/HTML/pt_BR/sweeper/sweeper.png
+/usr/share/doc/HTML/ru/sweeper/index.cache.bz2
+/usr/share/doc/HTML/ru/sweeper/index.docbook
 /usr/share/doc/HTML/sv/sweeper/index.cache.bz2
 /usr/share/doc/HTML/sv/sweeper/index.docbook
 /usr/share/doc/HTML/uk/sweeper/index.cache.bz2
